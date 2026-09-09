@@ -1,5 +1,5 @@
-#property copyright "OpenAI"
-#property link      ""
+#property copyright "moeinalva"
+#property link      "https://github.com/moeinalva"
 #property version   "1.00"
 #property strict
 #property indicator_chart_window
