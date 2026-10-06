@@ -17,9 +17,9 @@ Select two price levels directly on the chart, choose the desired number of sect
 * ➖ Uses native MetaTrader 5 horizontal lines
 * 🔢 Supports multiple independent ranges on the same chart
 * 🎯 Price-based selection — chart time is irrelevant
-* 🖱️ Draggable control panel
+* 🖱️ Drag the dashboard by its title/header; all controls move together
 * ▶️ Enable / Disable selection mode
-* 🧹 Clear only the objects created by this tool
+* 🧹 Clear 2-section ranges, 4-section ranges, or all ranges independently
 * 💾 Ranges remain available when changing timeframes
 * 🛡️ Handles symbol tick size and price precision
 * ⚡ Lightweight with no external dependencies
@@ -155,11 +155,19 @@ Existing ranges are not modified when a new range is created.
 
 ---
 
-## 🧹 Clear All
+## 🧹 Clear Ranges
 
-The **Clear All** button removes only the chart objects created by **MT5 Range Divider**.
+* **Clear 2 Sections** removes all ranges created in 2-section mode.
+* **Clear 4 Sections** removes all ranges created in 4-section mode.
+* **Clear All** removes all tool ranges and previews, and switches selection off.
 
-Other objects and drawings on your chart remain untouched.
+Selective clearing preserves the other range type and the current pending selection. Other objects and drawings on your chart remain untouched.
+
+New ranges store their section count explicitly, so selective clearing continues to work after timeframe changes, indicator reattachment, or manual deletion of individual lines. Ranges from older versions without type metadata can still be removed with **Clear All**; selective clearing leaves them unchanged rather than guessing their type.
+
+## Move the Dashboard
+
+Press and drag the title/header to move the entire dashboard. The panel stays within the main chart where space permits. Dragging and clicking dashboard controls do not select price points. The moved position survives timeframe changes; a fresh attachment uses the configured position. Hover over a shortened status message to read its full text.
 
 ---
 
@@ -225,7 +233,7 @@ It simply helps traders convert a manually selected price range into precise hor
 
 The compiled `.ex5` file is provided for end users.
 
-The original MQL5 source code (`.mq5`) is not included in the public distribution.
+The MQL5 source code (`MT5RangeDivider.mq5`) is included in this working copy.
 
 ---
 
@@ -234,6 +242,7 @@ The original MQL5 source code (`.mq5`) is not included in the public distributio
 ```text
 mt5-range-divider/
 │
+├── MT5RangeDivider.mq5
 ├── MT5RangeDivider.ex5
 ├── README.md
 ├── LICENSE
